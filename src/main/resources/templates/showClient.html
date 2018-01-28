@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Show Client</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/client" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Clients List</a>
+             </h3>
+             <h2 th:text="${client.name}"></h2>
+                <dl class="list">
+                	<dt>Client Email: </dt>
+                    <dd th:text="${client.email}"></dd>
+                    <dt>Client Address: </dt>
+                    <dd th:text="${client.address}"></dd>
+                </dl>
+                
+                <form action="/deleteClient">
+                    <input type="hidden" name="id" th:value="${client.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" 
+                   							 onclick="return confirm('Are you sure you want to delete this client?');" />
+                        
+                        <a th:href="@{'/editClient/' + ${client.id}}" class="btn btn-warning">Edit Client</a></h2>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

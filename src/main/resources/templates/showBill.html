@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Show Bill</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/bill" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Bills List</a>
+             </h3>
+             <h2>Bill ID: </h2><h2 th:text="${bill.id}"></h2>
+                <dl class="list">
+                	<dt>Employee ID: </dt>
+                    <dd th:text="${bill.idEmployee}"></dd>
+                    <dt>Client ID: </dt>
+                    <dd th:text="${bill.idClient}"></dd>
+                    <dt>Bill Date: </dt>
+                    <dd th:text="${bill.date}"></dd>
+                    <dt>Bill Amount: </dt>
+                    <dd th:text="${bill.amount}"></dd>
+                </dl>
+                
+                <form action="/deleteBill">
+                    <input type="hidden" name="id" th:value="${bill.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" 
+                   							 onclick="return confirm('Are you sure you want to delete this bill?');" />
+                        
+                        <a th:href="@{'/editBill/' + ${bill.id}}" class="btn btn-warning">Edit Bill</a></h2>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

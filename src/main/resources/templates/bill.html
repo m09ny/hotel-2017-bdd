@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+	</div>
+
+	<div class="container">
+		<div layout:fragment="content" class="row">
+			<div class="col-md-6">
+				<h3>
+					<a href="addBill" class="btn btn-primary"> <i
+						class="fa fa-plus-square-o" aria-hidden="true"></i> <span>Add
+							Bill</span>
+					</a>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Bill List</h2>
+			</div>
+			<div class="col-md-6 ml-auto">
+				<form class="form-inline" action="/bill" method="get">
+					<label class="sr-only" for="clientId">Client ID</label> 
+					<input name="idClient" type="text" class="form-control mb-2 mr-sm-2" id="idClient"
+						placeholder="Client ID" />
+					<button type="submit" class="btn btn-primary mb-2">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table" id="bill-table">
+					<thead>
+						<tr>
+							<th>Bill ID</th>
+							<th>Employee ID</th>
+							<th>Client ID</th>
+							<th>Date</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="bill : ${bill}">
+							<td><a th:text="${bill.id}"
+								th:href="@{'/showBill/' + ${bill.id}}"></a></td>
+							<td th:text="${bill.idEmployee}"></td>
+							<td th:text="${bill.idClient}"></td>
+							<td th:text="${bill.date}"></td>
+							<td th:text="${bill.amount}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="footer"></div>
+		</div>
+	</footer>
+
+</body>
+</html>

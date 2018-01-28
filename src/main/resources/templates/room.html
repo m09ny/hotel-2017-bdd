@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+	</div>
+
+	<div class="container">
+		<div layout:fragment="content" class="row">
+			<div class="col-md-6">
+				<h3>
+					<a href="addRoom" class="btn btn-primary"> <i
+						class="fa fa-plus-square-o" aria-hidden="true"></i> <span>Add
+							Room</span>
+					</a>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Room List</h2>
+			</div>
+			<div class="col-md-6 ml-auto">
+				<form class="form-inline" action="/room" method="get">
+					<label class="sr-only" for="type">Room Type</label> 
+					<input name="type" type="text" class="form-control mb-2 mr-sm-2" id="type"
+						placeholder="Room Type" />
+					<button type="submit" class="btn btn-primary mb-2">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table" id="room-table">
+					<thead>
+						<tr>
+							<th>Room ID</th>
+							<th>Room Type</th>
+							<th>Capacity</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="room : ${room}">
+							<td><a th:text="${room.id}"
+								th:href="@{'/showRoom/' + ${room.id}}"></a></td>
+							<td th:text="${room.type}"></td>
+							<td th:text="${room.capacity}"></td>
+							<td th:text="${room.price}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="footer"></div>
+		</div>
+	</footer>
+
+</body>
+</html>

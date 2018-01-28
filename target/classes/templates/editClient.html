@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Edit Client</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/client" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Clients List</a>
+             </h3>
+             <h2>Edit Client</h2>
+                <form action="/updateClient">
+                    <div class="form-group">
+                        <label for="name">Client Name:</label>
+                        <input type="text" class="form-control" name="name" th:value="${client.name}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Client Email: </label>
+                        <textarea class="form-control" name="email" cols="20" rows="1" th:text="${client.email}"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Client Address: </label>
+                        <textarea class="form-control" name="address" cols="60" rows="3" th:text="${client.address}"></textarea>
+                    </div>
+                    <input type="hidden" name="id" th:value="${client.id}" />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

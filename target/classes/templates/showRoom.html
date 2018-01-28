@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Show Room</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/room" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Rooms List</a>
+             </h3>
+             <h2>Room ID: </h2><h2 th:text="${room.id}"></h2>
+                <dl class="list">
+                	<dt>Room Type: </dt>
+                    <dd th:text="${room.type}"></dd>
+                    <dt>Room Capacity: </dt>
+                    <dd th:text="${room.capacity}"></dd>
+                    <dt>Room Price: </dt>
+                    <dd th:text="${room.price}"></dd>
+                </dl>
+                
+                <form action="/deleteRoom">
+                    <input type="hidden" name="id" th:value="${room.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" 
+                   							 onclick="return confirm('Are you sure you want to delete this room?');" />
+                        
+                        <a th:href="@{'/editRoom/' + ${room.id}}" class="btn btn-warning">Edit Room</a></h2>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

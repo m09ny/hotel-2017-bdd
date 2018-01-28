@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+	</div>
+
+	<div class="container">
+		<div layout:fragment="content" class="row">
+			<div class="col-md-6">
+				<h3>
+					<a href="addClient" class="btn btn-primary"> <i
+						class="fa fa-plus-square-o" aria-hidden="true"></i> <span>Add
+							Client</span>
+					</a>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Client List</h2>
+			</div>
+			<div class="col-md-6 ml-auto">
+				<form class="form-inline" action="/client" method="get">
+					<label class="sr-only" for="name">Client Name</label> 
+					<input name="name" type="text" class="form-control mb-2 mr-sm-2" id="name"
+						placeholder="Client name" />
+					<button type="submit" class="btn btn-primary mb-2">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table" id="client-table">
+					<thead>
+						<tr>
+							<th>Client ID</th>
+							<th>Client name</th>
+							<th>Client email</th>
+							<th>Client address</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="client : ${client}">
+							<td><a th:text="${client.id}"
+								th:href="@{'/showClient/' + ${client.id}}"></a></td>
+							<td th:text="${client.name}"></td>
+							<td th:text="${client.email}"></td>
+							<td th:text="${client.address}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="footer"></div>
+		</div>
+	</footer>
+
+</body>
+</html>

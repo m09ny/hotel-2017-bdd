@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+
+<body>
+	<div class="container">
+		<th:block th:include="fragments/header :: header"></th:block>
+	</div>
+
+	<div class="container">
+		<div layout:fragment="content" class="row">
+			<div class="col-md-6">
+				<h3>
+					<a href="addAccomodation" class="btn btn-primary"> <i
+						class="fa fa-plus-square-o" aria-hidden="true"></i> <span>Add
+							Accomodation</span>
+					</a>
+				</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<h2>Accomodation List</h2>
+			</div>
+			<div class="col-md-6 ml-auto">
+				<form class="form-inline" action="/accomodation" method="get">
+					<label class="sr-only" for="idRoom">Room ID</label> 
+					<input name="idRoom" type="text" class="form-control mb-2 mr-sm-2" id="idRoom"
+						placeholder="Room ID" />
+					<button type="submit" class="btn btn-primary mb-2">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="table-responsive">
+				<table class="table" id="accomodation-table">
+					<thead>
+						<tr>
+							<th>Accomodation ID</th>
+							<th>Employee ID</th>
+							<th>Bill ID</th>
+							<th>Room ID</th>
+							<th>Arrival Date</th>
+							<th>No of Nights</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="accomodation : ${accomodation}">
+							<td><a th:text="${accomodation.id}" th:href="@{'/showAccomodation/' + ${accomodation.id}}"></a></td>
+							<td th:text="${accomodation.idEmployee}"></td>
+							<td th:text="${accomodation.idBill}"></td>
+							<td th:text="${accomodation.idRoom}"></td>
+							<td th:text="${accomodation.arrivalDate}"></td>
+							<td th:text="${accomodation.noOfNights}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<footer>
+		<div class="container">
+			<div class="footer"></div>
+		</div>
+	</footer>
+
+</body>
+</html>

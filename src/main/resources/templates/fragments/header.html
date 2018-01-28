@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<!--[if lt IE 7]>
+ 	<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+        
+<div class="container">
+    <div th:fragment="header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#" th:href="@{/}">~ Project Hotel ~</a>
+                    <div class="nav-collapse collapse">
+	                    <ul class="nav">
+	                        <li><a href="#" th:href="@{/department}">Departments</a></li>
+	                        <li><a href="#" th:href="@{/employee}">Employees</a></li>                       
+	                        <li><a href="#" th:href="@{/bill}">Bills</a></li>
+	                        <li><a href="#" th:href="@{/client}">Clients</a></li>
+	                        <li><a href="#" th:href="@{/accomodation}">Accomodations</a></li>
+	                        <li><a href="#" th:href="@{/room}">Rooms</a></li>
+	                    </ul>
+	                   </div>
+                </div>
+            </div>
+        </nav>
+ 
+        <div class="jumbotron">
+            <div class="row text-center">
+                <div class="">
+                </div>
+            </div>
+            <div class="row text-center">
+            </div>
+        </div>
+    </div>
+</div>      
+
+<footer>
+     <div class="container">
+		<div class="footer">
+			Put your footer here
+		</div>
+	</div>
+</footer>
+
+<script src="../../js/vendor/jquery-1.9.0.min.js" th:src="@{/js/vendor/jquery-1.9.0.min.js}"></script>
+
+<script src="../../js/vendor/bootstrap.min.js" th:src="@{/js/vendor/bootstrap.min.js}"></script>
+
+<script src="../../js/main.js" th:src="@{/js/main.js}"></script>
+
+<script>
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+
+</body>
+</html>

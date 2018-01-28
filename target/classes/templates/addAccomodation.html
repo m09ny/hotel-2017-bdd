@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Add Accomodation</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/accomodation" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Accomodations List</a>
+             </h3>
+             <h2>Add Accomodation</h2>
+                <form action="/saveAccomodation">
+                    <div class="form-group">
+                        <label for="idEmployee">Employee ID: </label>
+                        <input type="text" class="form-control" name="idEmployee" />
+                    </div>
+                    <div class="form-group">
+                        <label for="idBill">Bill ID: </label>
+                        <input type="text" class="form-control" name="idBill" />
+                    </div>
+                    <div class="form-group">
+                        <label for="idRoom">Room ID: </label>
+                        <input type="text" class="form-control" name="idRoom" />
+                    </div>
+                    <div class="form-group">
+                        <label for="arrivalDate">Arrival Date:</label>
+                        <input type="text" class="form-control" name="arrivalDate" />
+                    </div>
+                    <div class="form-group">
+                        <label for="noOfNights">Number of Nights: </label>
+                        <input type="number" class="form-control" name="noOfNights" />
+                    </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

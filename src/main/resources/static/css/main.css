@@ -1,0 +1,38 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+@media all {
+    footer {
+        position: fixed;
+        bottom: 0;
+        z-index: 65000;
+        width: 100%;
+        min-height: 13px;
+        padding: 12px 0;
+
+    }
+    footer p {
+        line-height: 13px;
+        margin:0;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

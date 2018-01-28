@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Show Accomodation</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/accomodation" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Accomodations List</a>
+             </h3>
+             <h2>Accomodation ID: </h2><h2 th:text="${accomodation.id}"></h2>
+                <dl class="list">
+                	<dt>Employee ID: </dt>
+                    <dd th:text="${accomodation.idEmployee}"></dd>
+                    <dt>Bill ID: </dt>
+                    <dd th:text="${accomodation.idBill}"></dd>
+                    <dt>Room ID: </dt>
+                    <dd th:text="${accomodation.idRoom}"></dd>
+                    <dt>Arrival Date: </dt>
+                    <dd th:text="${accomodation.arrivalDate}"></dd>
+                    <dt>Number of Nights: </dt>
+                    <dd th:text="${accomodation.noOfNights}"></dd>
+                </dl>
+                
+                <form action="/deleteAccomodation">
+                    <input type="hidden" name="id" th:value="${accomodation.id}" />
+                    <h2><input type="submit" class="btn btn-danger" value="Delete" 
+                   							 onclick="return confirm('Are you sure you want to delete this accomodation?');" />
+                        
+                        <a th:href="@{'/editAccomodation/' + ${accomodation.id}}" class="btn btn-warning">Edit Accomodation</a></h2>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>

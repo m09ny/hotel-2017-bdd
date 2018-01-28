@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <title>Edit Bill</title>
+</head>  
+ 
+<body>
+	 <div class="container">
+	    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+	</div>
+ 
+	 <div layout:fragment="content" class="container" >
+		<div class="col-xs-6 col-md-6">
+             <h3>
+                 <a href="/bill" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span>Go to Bills List</a>
+             </h3>
+             <h2>Edit Bill</h2>
+                <form action="/updateBill">
+                    <div class="form-group">
+                        <label for="idEmployee">Employee ID: </label>
+                        <input type="text" class="form-control" name="idEmployee" th:value="${bill.idEmployee}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="idClient">Client ID: </label>
+                        <input type="text" class="form-control" name="idClient" th:value="${bill.idClient}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Bill Date: </label>
+                        <input type="text" class="form-control" name="date" th:value="${bill.date}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Bill Amount: </label>
+                        <input type="number" step="any" class="form-control" name="amount" th:value="${bill.amount}" />
+                    </div>
+                    <input type="hidden" name="id" th:value="${bill.id}" />
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+         </div>
+     </div>
+
+<footer>
+     <div class="container">
+		<div class="footer">
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
